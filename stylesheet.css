@@ -1,8 +1,19 @@
-#square {
+.square {
     width: 2em;
     height: 2em;
+    margin: .25em;
+}
+
+.green {
     background: #2ECC40;
-    margin: .2em;
+}
+
+.red {
+    background: #FF4136;
+}
+
+.gray {
+    background: #AAAAAA;
 }
 
 .main {
