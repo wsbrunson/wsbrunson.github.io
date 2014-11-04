@@ -1,4 +1,4 @@
-Habit_Forming
+Habit Forming
 =============
 
-Habit forming app
+Habit forming app. I feel a habit forming.
