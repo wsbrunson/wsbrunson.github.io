@@ -3,9 +3,6 @@ var dayObject = function (completed, date) {
   date = date;
 };
 
-var today = moment().format('L');
-
-
 var addSquare = function() {
   var numberOfSquares = 365;
   for(var i = 0; i < numberOfSquares; i++) {
@@ -22,6 +19,7 @@ var addSquare = function() {
       else {
         var message = ('<canvas class="square gray"></canvas>');
       }
+
       $('.main').find("div").append(message);
   }
 };
