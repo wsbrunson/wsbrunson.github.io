@@ -10,15 +10,15 @@ var addSquare = function() {
   var numberOfSquares = 365;
   for(var i = 0; i < numberOfSquares; i++) {
       var randomNumber = Math.random() * 6
-      
+
       if (randomNumber < 2) {
         var message = ('<canvas class="square green"></canvas>');
       }
-    
+
       else if (randomNumber > 4) {
         var message = ('<canvas class="square red"></canvas>');
       }
-    
+
       else {
         var message = ('<canvas class="square gray"></canvas>');
       }
@@ -27,5 +27,3 @@ var addSquare = function() {
 };
 
 addSquare();
-var now = moment();
-console.log(now);
