@@ -7,7 +7,7 @@ var addSquare = function() {
   var numberOfSquares = 365;
   for(var i = 0; i < numberOfSquares; i++) {
       var randomNumber = Math.random() * 6,
-          squareClass = " sq" + i
+          squareClass = " sq" + (i + 1)
       
       if (randomNumber < 2) {
         var message = ('<canvas class="square green' + squareClass + '"></canvas>');
