@@ -8,7 +8,7 @@ var addSquare = function() {
   for(var i = 0; i < numberOfSquares; i++) {
       var randomNumber = Math.random() * 6,
           squareClass = " sq" + (i + 1)
-      
+
       if (randomNumber < 2) {
         var message = ('<div class="square green' + squareClass + '"></div>');
       }

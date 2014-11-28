@@ -2,6 +2,7 @@
     width: 2em;
     height: 2em;
     margin: .25em;
+    display: inline-block;
 }
 
 .green {
