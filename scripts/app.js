@@ -10,19 +10,19 @@ var addSquare = function() {
           squareClass = " sq" + (i + 1)
       
       if (randomNumber < 2) {
-        var message = ('<canvas class="square green' + squareClass + '"></canvas>');
+        var message = ('<div class="square green' + squareClass + '"></div>');
       }
 
       else if (randomNumber > 4) {
-        var message = ('<canvas class="square red' + squareClass + '"></canvas>');
+        var message = ('<div class="square red' + squareClass + '"></div>');
       }
 
       else {
-        var message = ('<canvas class="square gray' + squareClass + '"></canvas>');
+        var message = ('<div class="square gray' + squareClass + '"></div>');
       }
 
-      $('.main').find("div").append(message);
+      $('.main').append(message);
   }
 };
 
-addSquare();
+$(document).ready(addSquare());
