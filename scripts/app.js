@@ -2,16 +2,11 @@ var habitSquare = function(completed) {
   this.completed = completed;
 
   this.colorSquare = function() {
-    var squareHTML;
-
-    if (this.completed) {
-      squareHTML = ('<div class="square green"></div>');
-    }
-
-    else {
-      squareHTML = ('<div class="square red"></div>');
-    }
-
+    var squareHTML,
+        greenSquare = '<div class="square green"></div>',
+        redSquare =  '<div class="square red"></div>';
+        
+    squareHTML = this.completed ? greenSquare : redSquare;
     return squareHTML;
   };
 
