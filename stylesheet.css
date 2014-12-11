@@ -20,21 +20,30 @@
 .main {
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 38%;
     background-color: white;
 }
 
 .header {
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    width: 38%;
     background-color: white;
 }
 
-.header h1 {
-     font-family: 'Oxygen', sans-serif;
+.user-form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 38%;
+    background-color: white;
 }
 
-.header h5 {
-    font-family: 'Oxygen', sans-serif;
+.user-form * {
+    display: inline-block;
+}
+
+input {
+    background-color: #2ECC40;
+    color: black;
+    border-radius: .2em;
 }
