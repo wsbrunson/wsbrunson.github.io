@@ -25,10 +25,9 @@
 }
 
 .header {
-    margin-left: auto;
-    margin-right: auto;
-    width: 38%;
-    background-color: white;
+    height: 20%;
+    background-color: black;
+    text-align: center;
 }
 
 .user-form {
