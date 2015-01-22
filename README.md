@@ -1,4 +1,4 @@
-Habit Forming
+My blog
 =============
 
-Habit forming app. I feel a habit forming.
+
