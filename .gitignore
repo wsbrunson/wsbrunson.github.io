@@ -1,2 +1,5 @@
 _site
 .sass-cache
+
+#Ignore all .c9 specific files<br>
+/.c9/
