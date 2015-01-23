@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "Testing Post - PLEASE IGNORE"
+date:   2015-01-22 17:06:15
+categories: jekyll update
+---
+
+Just working out how this all works. Trying to design a cool template for my site and work out how posts and markup works.
+
+{% highlight javascript %}
+var print = function () {
+    console.log('Hi, Tom');
+};
+#=> prints 'Hi, Tom' to the console.
+{% endhighlight %}
+
+Also trying out the code highlighting.
+
+Signing off.
