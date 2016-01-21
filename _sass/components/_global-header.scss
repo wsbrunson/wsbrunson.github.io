@@ -1,0 +1,27 @@
+.global-header {
+  width: 100%;
+}
+  .global-header-nav {
+    padding-top: 20px;
+    margin-left: 25%;
+    width: 50%;
+  }
+
+  .global-header-nav-container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .global-header-nav-item {
+    display: inline-block;
+  }
+
+  .global-header-nav-item.isActive {
+    border-bottom: 4px solid $brand-color;
+  }
+
+  .global-header-nav-link {
+    color: #222;
+    font-size: 22px;
+    text-decoration: none;
+  }
