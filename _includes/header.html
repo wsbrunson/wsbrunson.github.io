@@ -2,11 +2,13 @@
     <nav class="global-header-nav">
       <ul class="global-header-nav-container">
         <li class="global-header-nav-item isActive">
-          <a class="global-header-nav-link" href="{{ site.baseurl }}/">Home</a>
+          <a class="global-header-nav-link" href="{{ site.baseurl }}/">Blog</a>
         </li>
         {% for page in site.pages %}
+          {% capture number %}{{ forloop.length }}{% endcapture %}
+          {% assign navIndex = {{forloop.index}} %}
           {% if page.title %}
-        <li class="global-header-nav-item">
+        <li class="global-header-nav-item" data-nav="{{navIndex}}">
           <a class="global-header-nav-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
         </li>
           {% endif %}

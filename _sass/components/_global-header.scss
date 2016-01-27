@@ -1,5 +1,6 @@
 .global-header {
   width: 100%;
+  padding-bottom: 40px;
 }
   .global-header-nav {
     padding-top: 20px;
@@ -14,6 +15,10 @@
 
   .global-header-nav-item {
     display: inline-block;
+
+    &:hover {
+      border-bottom: 4px solid #222;
+    }
   }
 
   .global-header-nav-item.isActive {
@@ -23,5 +28,10 @@
   .global-header-nav-link {
     color: #222;
     font-size: 22px;
+    font-weight: $base-font-normal-weight;
     text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
