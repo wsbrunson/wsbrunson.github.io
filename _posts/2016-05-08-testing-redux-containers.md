@@ -4,14 +4,15 @@ title:  "Unit Testing Redux Container Components - Part 1"
 date:   2016-05-08 17:06:15
 categories: react redux test
 ---
-When using React at scale, certain design patterns start to become necessary. One of those patterns is Presentational versus Container components. If you aren't familiar with the terms, I would suggest reading [this article][smart-and-dumb-components] and [this article][container-components] before continuing with this post.
+When using React at scale, certain design patterns start to become necessary. One of those patterns is Presentational versus Container components. It's a pattern that separates an applications view logic from data and business logic. If a React component makes a network request for data, there's a good chance it should have a container component. If you'd like to learn more about this pattern, I would suggest reading [this article][smart-and-dumb-components] and [this article][container-components].
 
-Writing large React applications also requires a sane solution to managing state. There are a few libraries to choose from, but the most popular is Redux. Redux has some great features, including a convenient way to create Container components that can map state and actions to the properties of a presentational component.
+Writing large React applications also requires a sane solution to managing state. There are a few libraries to choose from, but the most popular is [Redux][redux-link]. Redux has some great features, including a convenient way to create Container components that can map state and actions to the properties of a presentational component.
 
 Redux also includes a component called Provider. Provider is used to give all of the components in an application access to the Redux store. Without Provider, a child component would have to have the Redux store passed to it by all of it's parents to modify the store. This causes problems when unit testing Redux Containers though. A true unit test is isolated from the rest of the application, so the container component is being rendered outside of the Provider component, meaning it has lost access to the Redux store.
 
 Let's start with a simple presentational component. Our hypothetical app is a Quiz. Our component is a Choice, something that would render as a child of a Question. When clicking a Choice, it would add it's question and choice Id into the selections state of the Redux store. Here is the Choice component:
-{% highlight javascript tabsize=2 %}
+
+{% highlight javascript %}
 import React from 'react';
 
 const Choice = ({ saveSelection, choiceText }) => {
@@ -58,6 +59,7 @@ const ChoiceContainer = connect(
 
 export default ChoiceContainer;
 {% endhighlight %}
+
 **Note:** in the saveSelection method, `ownProps.questionNumber` and `ownProps.choiceNumber` are integers being passed to ChoiceContainer from its parent component that is not shown in this post. We are not using them in the Choice component at this time, but they are important for identifying which Choice of which Question was selected.
 
 I have seen some developers combine the container and the presentation classes into one file and export the container component. I like splitting them into separate files, especially if `mapDispatchToProps` and `mapStateToProps` functions get any more complicated than the example above.
@@ -169,7 +171,9 @@ Our tests don't do much at the moment, but this will at least allow them to comp
 
 [smart-and-dumb-components]: https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.5xckd0c2n
 
-[container-components]:https://medium.com/@learnreact/container-components-c0e67432e005#.nutho0232
+[container-components]: https://medium.com/@learnreact/container-components-c0e67432e005#.nutho0232
+
+[redux-link]: http://redux.js.org
 
 [enzyme-link]: http://airbnb.io/enzyme/
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Converting an App from Angular 1.x to React"
-date:   2016-02-06 17:06:15
+date:   2016-03-18 17:06:15
 categories: react angular
 ---
 After completing Wes Bos's excellent React course, [React For Beginners](https://reactforbeginners.com),
