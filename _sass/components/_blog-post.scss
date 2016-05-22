@@ -1,23 +1,23 @@
 .blog-post {
   margin: 0 auto;
-  width: 35%;
-
-	@include media-query($on-laptop) {
-			width: 48%;
-	}
+  width: 55%;
 }
 
   .blog-post-heading {
-    margin-bottom: 20px;
+    padding-bottom: $padding-blog-post-heading;
   }
 
   .blog-post-title {
-    color: #222222;
     font-size: 36px;
-    font-weight: $base-font-bold-weight;
+    font-weight: $font-weight-bold;
+		padding-bottom: $padding-blog-post-title;
   }
 
 	.blog-post-link {
-		color: $text-color;
+		color: $color-gray-dark;
 		text-decoration: none;
+	}
+
+	.blog-post-content {
+		font-size: $text-size-blog-post;
 	}

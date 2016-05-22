@@ -1,5 +1,12 @@
+---
+layout: default
+---
 <div class="projects-item">
-    <a href><h3 class="projects-item-title">{{project.title}}</h3></a>
-    <p class="projects-item-description">{{content}}</p>
-    <img src="{{project.imgSrc}}" class="projects-item-image">
+
+  <h2 class="projects-item-title">{{ page.title }}</h2>
+	<img src="{{project.imgSrc}}" class="projects-item-image">
+  <article class="projects-item-content">
+    {{ content }}
+  </article>
+
 </div>

@@ -3,19 +3,14 @@
 ---
 @charset "utf-8";
 
-@import "variables/colors";
-@import "variables/media-queries";
-@import "variables/typography";
+@import 'reset';
 
+@import "variables";
 @import "base";
-@import "layout";
 @import "syntax-highlighting";
-
-@import "vendor/simplegrid";
 
 @import "components/global-blog";
 @import "components/global-header";
-@import "components/global-sb";
 @import "components/global-footer";
 
 @import "components/blog-post";

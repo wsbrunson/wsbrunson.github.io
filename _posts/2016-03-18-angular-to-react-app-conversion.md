@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Converting an App from Angular 1.x to React"
+title:  "Converting from Angular 1.x to React"
 date:   2016-03-18 17:06:15
 categories: react angular
 ---
@@ -61,7 +61,7 @@ class Quiz extends React.Component({
 	        <div ng-repeat="question in vm.questions">
 	            <h3>{{ question.questionTitle }}</h3>
 	            <div ng-repeat="choice in question.choices">
-	                <input type="radio">
+	                <input type="radio" />
 	                <label>{{ choice }}</label>
 	            </div>
             </div>
@@ -82,10 +82,10 @@ Let's touch up our template by removing the references to Angular directives and
 </div>
 
 //React
-<div class="question-container">
+<div className="question-container">
     {this.props.questions.map(question => {
         return (
-            <div class="question>
+            <div classNameName="question>
                 <h3>{question.questionTitle}</h3>
                 <Choices choices={question.choices} />
             </div>
@@ -93,16 +93,16 @@ Let's touch up our template by removing the references to Angular directives and
     }}
 </div>
 {% endhighlight %}
-While converting our template to work in React, we've replaced the second `ng-repeat` directive with a new React component, Choices. Moving my app into React showed me a lot of places where I could break my code into even smaller components. Without the Choices component, we would have had to perform a second map of all the choices in the question object. Nesting ng-repeats is a little weird to see, but necessarily an immediate code smell. Nesting loops, on the other hand, feels wrong right away. Our Choices component looks like this:
+While converting our template to work in React, we've replaced the second `ng-repeat` directive with a new React component, Choices. Moving my app into React showed me a lot of places where I could break my code into even smaller components. Without the Choices component, we would have had to perform a second map of all the choices in the question object. Nesting ng-repeats is a little weird to see, but not necessarily an immediate code smell. Nesting loops, on the other hand, feels wrong right away. Our Choices component looks like this:
 {% highlight javascript %}
 class Choices extends React.Component({
     render() {
         return(
-            <div class='choice-container>
+            <div className="choice-container">
             {this.props.questions.map(choice => {
                 return (
-                    <div class="choice">
-                        <input type="radio">
+                    <div className="choice">
+                        <input type="radio" />
                         <label>{choice}</label>
                     </div>
                 );
@@ -117,10 +117,10 @@ The final version of our new Quiz component looks like this:
 class Quiz extends React.Component({
     render() {
         return(
-            <div class="question-container">
+            <div className="question-container">
             {this.props.questions.map(question => {
                 return (
-                    <div class="question>
+                    <div className="question>
                         <h3>{question.questionTitle}</h3>
                         <Choice choices={question.choices} />
                     </div>
@@ -135,8 +135,6 @@ class Quiz extends React.Component({
 ## Final Thoughts
 The React version of QuizSimply is much smaller and easier to understand. The bloat of boilerplate code that accompanies Angular directives is gone, replaced with mostly pure JavaScript (except the JSX).
 
-I found it very worthwhile to convert my app to React, but not for performance reasons. I just enjoy the syntax, the componentization, and writing less framework code and more actual JavaScript. Not exactly an argument you can show your boss to validate a major app re-write, but enough for me to start using React in all of my new side projects.
+I found it very worthwhile to convert my app to React, but not for performance reasons. I just enjoy the syntax, the componentization, and writing less framework code and more actual JavaScript. Not exactly an argument you can show your boss to validate a major app re-write, but enough for me to start using React in my new side projects.
 
 If you aren't ready or don't want to make the switch to React I would at least look into componentizing your Angular application. Components in a UI application make a lot of sense and make the application much easier to read and reason about. Plus, if you do feel the urge to switch to React or eventually Angular2, you will find the rewrite process much easier than with a traditional Angular project.
-
-For part 2, I plan on demonstrating converting the view component of this quiz into React, which will explore replacing routes, resolves, and view controllers.

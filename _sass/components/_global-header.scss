@@ -1,37 +1,22 @@
 .global-header {
-  width: 100%;
-  padding-bottom: 40px;
+	align-items: center;
+	display: flex;
+	justify-content: space-around;
+	padding-top: $padding-header-top;
+	padding-bottom: $padding-header-bottom;
 }
-  .global-header-nav {
-    padding-top: 20px;
-    margin-left: 25%;
-    width: 50%;
-  }
 
-  .global-header-nav-container {
-    display: flex;
-    justify-content: space-around;
-  }
+	.global-header-title {
+		color: $color-base;
+		font-size: $base-font-title-size;
+		font-weight: $font-weight-bold;
+		text-align: left;
+	}
 
-  .global-header-nav-item {
-    display: inline-block;
+	.global-header-list {
+		list-style: none;
+	}
 
-    &:hover {
-      border-bottom: 4px solid #222;
-    }
-  }
-
-  .global-header-nav-item.isActive {
-    border-bottom: 4px solid $brand-color;
-  }
-
-  .global-header-nav-link {
-    color: #222;
-    font-size: 22px;
-    font-weight: $base-font-normal-weight;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
+	.global-header-link {
+		color: $color-accent;
+	}

@@ -1,25 +1,5 @@
 <footer class="global-footer">
     <hr>
-    <nav class="global-footer-nav">
-        <ul class="global-footer-nav-container">
-            <li class="global-footer-nav-item">
-                <a class="global-footer-nav-link" href="{{ site.baseurl }}/">Blog</a>
-            </li>
-            <span> | </span>
-            {% for page in site.pages %}
-            {% capture number %}{{ forloop.length }}{% endcapture %}
-            {% assign navIndex = {{forloop.index}} %}
-            {% if page.title %}
-            <li class="global-footer-nav-item">
-                <a class="global-footer-nav-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-            </li>
-            {% if navIndex != forloop.length %}
-            <span> | </span>
-            {% endif %}
-            {% endif %}
-            {% endfor %}
-        </ul>
-    </nav>
-
+		<br />
     &copy; <script>document.write(""+new Date().getFullYear());</script> - Shane Brunson.
 </footer>

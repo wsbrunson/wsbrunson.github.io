@@ -1,13 +1,5 @@
 .global-footer {
-  padding-top: 75px;
+  padding-top: $global-footer-padding-top;
+	padding-bottom: $global-footer-padding-bottom;
   text-align: center;
 }
-
-  .global-footer-nav-container {
-    padding-top: 20px;
-
-  }
-
-  .global-footer-nav-item {
-    display: inline-block;
-  }

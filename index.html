@@ -1,23 +1,18 @@
 ---
 layout: default
 ---
-<div class="global-blog grid grid-pad">
-
-    {% include sidebar.html %}
-
-    <div class="global-blog-wrapper col-9-12">
-
+<div class="global-blog">
       <ul class="global-blog-posts">
         {% for post in site.posts %}
           <li class="global-blog-posts-container">
-            <h2 class="blog-post-title">
-              <a class="blog-post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-            </h2>
-              <span class="blog-post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-							<p class="blog-post-excerpt">{{post.excerpt}}</p>
+						<div class="blog-post-heading">
+	            <h2 class="blog-post-title">
+	              <a class="blog-post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+	            </h2>
+	              <span class="blog-post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+						</div>
+						<p class="global-blog-post-excerpt">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}</p>
           </li>
         {% endfor %}
       </ul>
-
-    </div>
 </div>

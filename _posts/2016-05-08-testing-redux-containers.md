@@ -4,7 +4,7 @@ title:  "Unit Testing Redux Container Components - Part 1"
 date:   2016-05-08 17:06:15
 categories: react redux test
 ---
-When using React at scale, certain design patterns start to become necessary. One of those patterns is Presentational versus Container components. It's a pattern that separates an applications view logic from data and business logic. If a React component makes a network request for data, there's a good chance it should have a container component. If you'd like to learn more about this pattern, I would suggest reading [this article][smart-and-dumb-components] and [this article][container-components].
+When using React at scale, certain design patterns start to become necessary. One of those patterns is Presentational versus Container components. It's a pattern that separates an application's view logic from data and business logic. If a React component makes a network request for data, there's a good chance it should have a container component. If you'd like to learn more about this pattern, I would suggest reading [this article][smart-and-dumb-components] and [this article][container-components].
 
 Writing large React applications also requires a sane solution to managing state. There are a few libraries to choose from, but the most popular is [Redux][redux-link]. Redux has some great features, including a convenient way to create Container components that can map state and actions to the properties of a presentational component.
 
@@ -47,7 +47,10 @@ const mapStateToProps = () => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		saveSelection: () => {
-			dispatch(addSelection(ownProps.questionNumber, ownProps.choiceNumber));
+			dispatch(addSelection(
+				ownProps.questionNumber,
+				ownProps.choiceNumber
+			));
 		},
 	};
 };
