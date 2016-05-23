@@ -6,8 +6,8 @@ description: > # this means to ignore newlines until "baseurl:"
   topics I find interesting.
 baseurl: ""
 url: wsbrunson.com # the base hostname & protocol for your site
-twitter_username: wsbrunson
-github_username:  wsbrunson
+twitter_url: https://twitter.com/wsbrunson
+github_url:  https://github.com/wsbrunson
 
 # Build settings
 markdown: kramdown

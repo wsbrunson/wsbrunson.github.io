@@ -13,10 +13,12 @@
 
 	.global-blog-posts-container {
 		margin-bottom: $margin-blog-posts;
+		text-align: center;
 	}
 
 	.global-blog-post-excerpt {
 		font-size: $text-size-blog-post;
+		padding-left: 22.5%;
 		text-align: justify;
-		width: 65%;
+		width: 55%
 	}
