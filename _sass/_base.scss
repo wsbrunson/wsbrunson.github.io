@@ -24,11 +24,22 @@ p {
 	padding-bottom: $padding-paragraph;
 }
 
+strong {
+	font-weight: $font-weight-bold;
+}
+
 figure.highlight {
 	font-family: "Courier New";
 	font-size: $text-size-code;
 	padding: $padding-figure-highlight;
 	margin-bottom: $margin-figure-highlight;
+}
+
+.highlighter-rouge {
+	background-color: white;
+	font-family: "Courier New";
+	font-size: $text-size-code;
+	padding: $padding-inline-code;
 }
 
 h2 {

@@ -1,6 +1,6 @@
 .blog-post {
-  margin: 0 auto;
-  width: 45%;
+  padding-left: $padding-blog-post-left-right;
+	padding-right: $padding-blog-post-left-right;
 }
 
   .blog-post-heading {

@@ -30,8 +30,10 @@ $padding-h2-bottom: 0.5rem;
 $padding-figure-highlight: 1rem;
 $margin-figure-highlight: 2rem;
 
-$margin-global-blog-left: 11rem;
-$margin-global-blog-right: 9rem;
+$padding-inline-code: 0.2rem;
+
+$padding-global-blog-left-right: calc(38% - (700px / 2));
+$padding-blog-post-left-right: calc(55% - (700px / 2));
 $margin-blog-posts: 4rem;
 
 $padding-header-top: 2rem;
