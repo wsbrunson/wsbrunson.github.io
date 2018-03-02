@@ -1,0 +1,52 @@
+{
+  "assetsByChunkName": {
+    "path---angular-to-react-app-conversion": [
+      "path---angular-to-react-app-conversion-8d321a46b71218dcc8d3.js",
+      "path---angular-to-react-app-conversion-8d321a46b71218dcc8d3.js.map"
+    ],
+    "component---src-pages-index-js": [
+      "component---src-pages-index-js-fd45335cb1f5345fa9a5.js",
+      "component---src-pages-index-js-fd45335cb1f5345fa9a5.js.map"
+    ],
+    "path---": [
+      "path----557518bd178906f8d58a.js",
+      "path----557518bd178906f8d58a.js.map"
+    ],
+    "path---testing-redux-containers": [
+      "path---testing-redux-containers-4ec36900e0dadb26191b.js",
+      "path---testing-redux-containers-4ec36900e0dadb26191b.js.map"
+    ],
+    "component---node-modules-gatsby-plugin-offline-app-shell-js": [
+      "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js",
+      "component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js.map"
+    ],
+    "path---presentation-vs-container-components": [
+      "path---presentation-vs-container-components-160ac0565b4194b7f6e6.js",
+      "path---presentation-vs-container-components-160ac0565b4194b7f6e6.js.map"
+    ],
+    "component---src-templates-blog-post-js": [
+      "component---src-templates-blog-post-js-3bef4688ce3070249b0d.js",
+      "component---src-templates-blog-post-js-3bef4688ce3070249b0d.js.map"
+    ],
+    "component---src-layouts-index-js": [
+      "component---src-layouts-index-js-cbdf404e6b92499518d5.js",
+      "component---src-layouts-index-js-cbdf404e6b92499518d5.js.map"
+    ],
+    "path---index": [
+      "path---index-761c6782b3109d8e7046.js",
+      "path---index-761c6782b3109d8e7046.js.map"
+    ],
+    "commons": [
+      "commons-7b4ac136176c5a54a13b.js",
+      "commons-7b4ac136176c5a54a13b.js.map"
+    ],
+    "path---offline-plugin-app-shell-fallback": [
+      "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js",
+      "path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js.map"
+    ],
+    "app": [
+      "app-945c457ddbe7c3b43cc4.js",
+      "app-945c457ddbe7c3b43cc4.js.map"
+    ]
+  }
+}
