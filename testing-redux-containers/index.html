@@ -1,148 +1,133 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><link rel="preload" href="/component---src-layouts-index-js-cbdf404e6b92499518d5.js" as="script"/><link rel="preload" href="/component---src-templates-blog-post-js-3bef4688ce3070249b0d.js" as="script"/><link rel="preload" href="/path---testing-redux-containers-4ec36900e0dadb26191b.js" as="script"/><link rel="preload" href="/app-945c457ddbe7c3b43cc4.js" as="script"/><link rel="preload" href="/commons-7b4ac136176c5a54a13b.js" as="script"/><title data-react-helmet="true">Unit Testing Redux Container Components - Part 1 | Gatsby Starter Blog</title><style id="gatsby-inlined-css"></style></head><body><div id="___gatsby"><div data-reactroot="" data-reactid="1" data-react-checksum="-1397979184"><h3 data-reactid="2"><a href="/" data-reactid="3">W. Shane Brunson</a></h3><div data-reactid="4"><!-- react-empty: 5 --><h1 data-reactid="6">Unit Testing Redux Container Components - Part 1</h1><p data-reactid="7">May 08, 2016</p><div data-reactid="8"><p>Writing large React applications requires a sane solution to managing state. There are a few libraries to choose from, but the most popular is <a href="http://redux.js.org">Redux</a>. Redux has some great features, including a convenient way to create Container components that can map state and actions to the properties of a presentational component.</p>
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/0.0ec1348e9d62ff4a00c0.css">code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}
+
+/*! TACHYONS v4.11.1 | http://tachyons.io */
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}strong{font-weight:bolder}small{font-size:80%}button,input{font-family:inherit;font-size:100%;line-height:1.15;margin:0;overflow:visible}button{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}legend{color:inherit;display:table;max-width:100%;white-space:normal}[type=checkbox],[type=radio],legend{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}[hidden]{display:none}body,div,figcaption,h1,h2,h3,header,html,input[type=email],input[type=number],input[type=password],input[type=tel],input[type=text],input[type=url],legend,main,nav,p,section{box-sizing:border-box}.bb{border-bottom-style:solid;border-bottom-width:1px}.bw2{border-width:.25rem}.flex{display:flex}.flex-column{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.system-sans-serif{font-family:sans-serif}.system-serif{font-family:serif}.h1{height:1rem}.h2{height:2rem}.h3{height:4rem}.h-100{height:100%}.lh-copy{line-height:1.5}.link{text-decoration:none}.link,.link:active,.link:focus,.link:hover,.link:link,.link:visited{transition:color .15s ease-in}.link:focus{outline:1px dotted currentColor}.mw7{max-width:48rem}.w-100{width:100%}.near-black{color:#111}.dark-red{color:#e7040f}.bg-near-white{background-color:#f4f4f4}.pa4{padding:2rem}.ma0{margin:0}.mb4{margin-bottom:2rem}.f1{font-size:3rem}.f2{font-size:2.25rem}.f3{font-size:1.5rem}.f4{font-size:1.25rem}.underline-hover:focus,.underline-hover:hover{text-decoration:underline}</style><meta name="generator" content="Gatsby 2.0.85"/><title data-react-helmet="true">Unit Testing Redux Container Components - Part 1 | Shane Brunson</title><link as="script" rel="preload" href="/0-4b9e5139266d880dbab3.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-tsx-ea4a08c4808f063abd3b.js"/><link as="script" rel="preload" href="/app-5bd572ad5281d6ddd0ac.js"/><link as="script" rel="preload" href="/webpack-runtime-5e10bdbb3bf2d31ad4ad.js"/><link as="fetch" rel="preload" href="/static/d/514/path---testing-redux-containers-596-dca-WS3GzfM27mVvvDwI5bWqxT2ReHw.json" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><header><h1 class="pa4 ma0 f1 system-serif"><a class="dark-red link bb bw2" href="/">Shane Brunson</a></h1></header><main class="pa4 w-100 h-100 bg-near-white near-black flex flex-column justify-center items-center system-sans-serif"><div class="mw7"><h2 class="ma0 f2">Unit Testing Redux Container Components - Part 1</h2><small class="dark-red">08 May 2016</small><p class="mw7 f4 lh-copy"><p>Writing large React applications requires a sane solution to managing state. There are a few libraries to choose from, but the most popular is <a href="http://redux.js.org">Redux</a>. Redux has some great features, including a convenient way to create Container components that can map state and actions to the properties of a presentational component.</p>
 <p>Redux also includes a component called Provider. Provider is used to give all of the components in an application access to the Redux store. Without Provider, a child component would have to have the Redux store passed to it by all of it’s parents to modify the store. This causes problems when unit testing Redux Containers though. A true unit test is isolated from the rest of the application, so the container component is being rendered outside of the Provider component, meaning it has lost access to the Redux store.</p>
 <p>Let’s start with a simple presentational component. Our hypothetical app is a Quiz. Our component is a Choice, something that would render as a child of a Question. When clicking a Choice, it would add it’s question and choice Id into the selections state of the Redux store. Here is the Choice component:</p>
-<p>{% highlight javascript %}
-import React from ‘react’;</p>
-<p>const Choice = ({ saveSelection, choiceText }) => {
-return (</p>
-<li className="choice">
-<input
-				type="radio"
-				onClick={saveSelection}
-			/>
-<label>{choiceText}</label>
-</li>
-);
-};
-<p>export default Choice;
-{% endhighlight %}</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">Choice</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> saveSelection<span class="token punctuation">,</span> choiceText <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>li className<span class="token operator">=</span><span class="token string">"choice"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"radio"</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>saveSelection<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>label<span class="token operator">></span><span class="token punctuation">{</span>choiceText<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>label<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Choice<span class="token punctuation">;</span></code></pre></div>
 <p>And the container component:</p>
-<p>{% highlight javascript %}
-import { connect } from ‘react-redux’;
-import { addSelection } from ‘../actions’;</p>
-<p>import Choice from ‘../components/Choice’;</p>
-<p>const mapStateToProps = () => {
-return {
-isSelected: false,
-};
-};</p>
-<p>const mapDispatchToProps = (dispatch, ownProps) => {
-return {
-saveSelection: () => {
-dispatch(addSelection(
-ownProps.questionNumber,
-ownProps.choiceNumber
-));
-},
-};
-};</p>
-<p>const ChoiceContainer = connect(
-mapStateToProps,
-mapDispatchToProps
-)(Choice);</p>
-<p>export default ChoiceContainer;
-{% endhighlight %}</p>
-<p><strong>Note:</strong> in the saveSelection method, <code>ownProps.questionNumber</code> and <code>ownProps.choiceNumber</code> are integers being passed to ChoiceContainer from its parent component that is not shown in this post. We are not using them in the Choice component at this time, but they are important for identifying which Choice of which Question was selected.</p>
-<p>I have seen some developers combine the container and the presentation classes into one file and export the container component. I like splitting them into separate files, especially if <code>mapDispatchToProps</code> and <code>mapStateToProps</code> functions get any more complicated than the example above.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> connect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-redux"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> addSelection <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"../actions"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> Choice <span class="token keyword">from</span> <span class="token string">"../components/Choice"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">mapStateToProps</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    isSelected<span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">mapDispatchToProps</span> <span class="token operator">=</span> <span class="token punctuation">(</span>dispatch<span class="token punctuation">,</span> ownProps<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    saveSelection<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token function">addSelection</span><span class="token punctuation">(</span>ownProps<span class="token punctuation">.</span>questionNumber<span class="token punctuation">,</span> ownProps<span class="token punctuation">.</span>choiceNumber<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> ChoiceContainer <span class="token operator">=</span> <span class="token function">connect</span><span class="token punctuation">(</span>
+  mapStateToProps<span class="token punctuation">,</span>
+  mapDispatchToProps
+<span class="token punctuation">)</span><span class="token punctuation">(</span>Choice<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> ChoiceContainer<span class="token punctuation">;</span></code></pre></div>
+<p><strong>Note:</strong> in the saveSelection method, <code class="language-text">ownProps.questionNumber</code> and <code class="language-text">ownProps.choiceNumber</code> are integers being passed to ChoiceContainer from its parent component that is not shown in this post. We are not using them in the Choice component at this time, but they are important for identifying which Choice of which Question was selected.</p>
+<p>I have seen some developers combine the container and the presentation classes into one file and export the container component. I like splitting them into separate files, especially if <code class="language-text">mapDispatchToProps</code> and <code class="language-text">mapStateToProps</code> functions get any more complicated than the example above.</p>
 <p>Now that we have two components, let’s test them. I’m using <a href="http://airbnb.io/enzyme/">Airbnb’s Enzyme library</a> to compile the components. I would highly recommend using Enzyme. It makes rendering components and checking their structure, props, and state simple.</p>
-<p>First, the Choice component:
-{% highlight javascript %}
-import React from ‘react’;
-import { shallow } from ‘enzyme’;</p>
-<p>import Choice from ’../../src/js/components/Choice’;</p>
-<p>describe(‘Choice Component’, () => {
-const choiceText = ‘Choice 1’;
-const saveSelection = jasmine.createSpy(‘saveSelection’);
-let Component;</p>
-<div class="gatsby-highlight">
-      <pre class="language-none"><code>beforeEach(() => {
-	Component = shallow(
-		<Choice
-			saveSelection={saveSelection}
-			choiceText={choiceText}
-		/>
-	);
-});
+<p>First, the Choice component:</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> shallow <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"enzyme"</span><span class="token punctuation">;</span>
 
-it('should render', () => {
-	expect(Component.length).toBeTruthy();
+<span class="token keyword">import</span> Choice <span class="token keyword">from</span> <span class="token string">"../../src/js/components/Choice"</span><span class="token punctuation">;</span>
 
-	expect(Component.find('label').text()).toBe(choiceText);
-});
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"Choice Component"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> choiceText <span class="token operator">=</span> <span class="token string">"Choice 1"</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> saveSelection <span class="token operator">=</span> jasmine<span class="token punctuation">.</span><span class="token function">createSpy</span><span class="token punctuation">(</span><span class="token string">"saveSelection"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> Component<span class="token punctuation">;</span>
 
-it('should call saveSelection when clicked', () => {
-	Component.find('input').simulate('click');
+  <span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    Component <span class="token operator">=</span> <span class="token function">shallow</span><span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>Choice saveSelection<span class="token operator">=</span><span class="token punctuation">{</span>saveSelection<span class="token punctuation">}</span> choiceText<span class="token operator">=</span><span class="token punctuation">{</span>choiceText<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-	expect(saveSelection).toHaveBeenCalled();
-});</code></pre>
-      </div>
-<p>});
-{% endhighlight %}</p>
-<p>And now the ChoiceContainer component:
-{% highlight javascript %}
-import React from ‘react’;
-import { Provider } from ‘react-redux’;
-import { mount } from ‘enzyme’;</p>
-<p>import { storeFake } from ‘../fakeData/storeFake’;
-import ChoiceContainer from ’../../src/js/containers/ChoiceContainer’;
-import Choice from ’../../src/js/components/Choice’;</p>
-<p>describe(‘ChoiceContainer’, () => {
-let Component;
-let ChoiceComponent;</p>
-<div class="gatsby-highlight">
-      <pre class="language-none"><code>beforeEach(() => {
-	const store = storeFake({});
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"should render"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>Component<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeTruthy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-	const wrapper = mount(
-		<Provider store={store}>
-			<ChoiceContainer />
-		</Provider>
-	);
+    <span class="token function">expect</span><span class="token punctuation">(</span>Component<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">"label"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBe</span><span class="token punctuation">(</span>choiceText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-	Component = wrapper.find(ChoiceContainer);
-	ChoiceComponent = Component.find(Choice);
-});
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"should call saveSelection when clicked"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    Component<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">simulate</span><span class="token punctuation">(</span><span class="token string">"click"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-it('should render', () => {
-	expect(Component.length).toBeTruthy();
-	expect(ChoiceComponent.length).toBeTruthy();
-});</code></pre>
-      </div>
-<p>});
-{% endhighlight %}</p>
-<p>We are able to compile and find a ChoiceContainer component because of these lines:
-{% highlight javascript %}
-const store = storeFake({});</p>
-<p>const wrapper = mount(
-<Provider store={store}>
-<ChoiceContainer />
-</Provider>
-);</p>
-<p>Component = wrapper.find(ChoiceContainer);
-ChoiceComponent = Component.find(Choice);
-{% endhighlight %}
-We created a Provider component, gave it a fake store, and wrapped the ChoiceContainer with it. Then we used Enzyme’s find method to find the rendered ChoiceContainer and Choice components.</p>
-<p>Here is what the fake store looks like:
-{% highlight javascript %}
-export const storeFake = (state) => {
-return {
-default: () => {},
-subscribe: () => {},
-dispatch: () => {},
-getState: () => {
-return { …state };
-},
-};
-};
-{% endhighlight %}
-<strong>Note:</strong> the Object spread operator, <code>{ ...state }</code>, will not automatically compile with Babel. You will need to install <a href="https://babeljs.io/docs/plugins/transform-object-rest-spread/">this package</a> from npm and update your Babel presets.</p>
+    <span class="token function">expect</span><span class="token punctuation">(</span>saveSelection<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toHaveBeenCalled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>And now the ChoiceContainer component:</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Provider <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react-redux"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> mount <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"enzyme"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token punctuation">{</span> storeFake <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"../fakeData/storeFake"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> ChoiceContainer <span class="token keyword">from</span> <span class="token string">"../../src/js/containers/ChoiceContainer"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Choice <span class="token keyword">from</span> <span class="token string">"../../src/js/components/Choice"</span><span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"ChoiceContainer"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> Component<span class="token punctuation">;</span>
+  <span class="token keyword">let</span> ChoiceComponent<span class="token punctuation">;</span>
+
+  <span class="token function">beforeEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">storeFake</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> wrapper <span class="token operator">=</span> <span class="token function">mount</span><span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>Provider store<span class="token operator">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>ChoiceContainer <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Component <span class="token operator">=</span> wrapper<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>ChoiceContainer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ChoiceComponent <span class="token operator">=</span> Component<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>Choice<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">it</span><span class="token punctuation">(</span><span class="token string">"should render"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>Component<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeTruthy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">expect</span><span class="token punctuation">(</span>ChoiceComponent<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toBeTruthy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>We are able to compile and find a ChoiceContainer component because of these lines:</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">storeFake</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> wrapper <span class="token operator">=</span> <span class="token function">mount</span><span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>Provider store<span class="token operator">=</span><span class="token punctuation">{</span>store<span class="token punctuation">}</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>ChoiceContainer <span class="token operator">/</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">></span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+Component <span class="token operator">=</span> wrapper<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>ChoiceContainer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ChoiceComponent <span class="token operator">=</span> Component<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>Choice<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>We created a Provider component, gave it a fake store, and wrapped the ChoiceContainer with it. Then we used Enzyme’s find method to find the rendered ChoiceContainer and Choice components.</p>
+<p>Here is what the fake store looks like:</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">storeFake</span> <span class="token operator">=</span> state <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    subscribe<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    dispatch<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+    getState<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span>state <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p><strong>Note:</strong> the Object spread operator, <code class="language-text">{ ...state }</code>, will not automatically compile with Babel. You will need to install <a href="https://babeljs.io/docs/plugins/transform-object-rest-spread/">this package</a> from npm and update your Babel presets.</p>
 <p>Any object passed to the fake store will be used by the Provider component when rendering the ChoiceComponent.</p>
-<p>Our tests don’t do much at the moment, but this will at least allow them to compile. In the next post, I will demonstrate how I go about testing container components. If you’d like to see the project as a whole, check out the <a href="https://github.com/wsbrunson/Quiz-Simply-React">QuizSimply Github repository</a>.</p></div><hr data-reactid="9"/></div></div></div><script id="webpack-manifest">/*<![CDATA[*/window.webpackManifest={"231608221292675":"app-945c457ddbe7c3b43cc4.js","99219681209289":"component---node-modules-gatsby-plugin-offline-app-shell-js-5c4c5a0f7af9dc69d6d7.js","107818501498521":"component---src-templates-blog-post-js-3bef4688ce3070249b0d.js","35783957827783":"component---src-pages-index-js-fd45335cb1f5345fa9a5.js","60335399758886":"path----557518bd178906f8d58a.js","210333531512890":"path---offline-plugin-app-shell-fallback-a0e39f21c11f6a62c5ab.js","95462231056136":"path---testing-redux-containers-4ec36900e0dadb26191b.js","35152228299422":"path---angular-to-react-app-conversion-8d321a46b71218dcc8d3.js","103274682931142":"path---presentation-vs-container-components-160ac0565b4194b7f6e6.js","142629428675168":"path---index-761c6782b3109d8e7046.js","114276838955818":"component---src-layouts-index-js-cbdf404e6b92499518d5.js"}/*]]>*/</script><script>
-  
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'undefined', 'auto');
-  </script><script>/*<![CDATA[*/!function(e,t,r){function n(){for(;d[0]&&"loaded"==d[0][f];)c=d.shift(),c[o]=!i.parentNode.insertBefore(c,i)}for(var s,a,c,d=[],i=e.scripts[0],o="onreadystatechange",f="readyState";s=r.shift();)a=e.createElement(t),"async"in i?(a.async=!1,e.head.appendChild(a)):i[f]?(d.push(a),a[o]=n):e.write("<"+t+' src="'+s+'" defer></'+t+">"),a.src=s}(document,"script",["/commons-7b4ac136176c5a54a13b.js","/app-945c457ddbe7c3b43cc4.js","/path---testing-redux-containers-4ec36900e0dadb26191b.js","/component---src-templates-blog-post-js-3bef4688ce3070249b0d.js","/component---src-layouts-index-js-cbdf404e6b92499518d5.js"])/*]]>*/</script></body></html>
+<p>Our tests don’t do much at the moment, but this will at least allow them to compile. In the next post, I will demonstrate how I go about testing container components. If you’d like to see the project as a whole, check out the <a href="https://github.com/wsbrunson/Quiz-Simply-React">QuizSimply Github repository</a>.</p></p><hr/></div></main></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-post-tsx","jsonName":"testing-redux-containers-596","path":"/testing-redux-containers/"};window.dataPath="514/path---testing-redux-containers-596-dca-WS3GzfM27mVvvDwI5bWqxT2ReHw";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-5bd572ad5281d6ddd0ac.js"],"component---src-templates-blog-post-tsx":["/component---src-templates-blog-post-tsx-ea4a08c4808f063abd3b.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-63965760c3cad3f08a97.js"],"pages-manifest":["/pages-manifest-fd197c7dc2670ea18707.js"]};/*]]>*/</script><script src="/webpack-runtime-5e10bdbb3bf2d31ad4ad.js" async=""></script><script src="/app-5bd572ad5281d6ddd0ac.js" async=""></script><script src="/component---src-templates-blog-post-tsx-ea4a08c4808f063abd3b.js" async=""></script><script src="/0-4b9e5139266d880dbab3.js" async=""></script></body></html>
