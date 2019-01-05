@@ -1,4 +1,6 @@
 {
-  "extends": ["plugin:prettier/recommended"],
-  "parser": "babel-eslint"
+  "extends": ["@wsbrunson/eslint-config-modern"],
+  "rules": {
+    "react/prop-types": false
+  }
 }
