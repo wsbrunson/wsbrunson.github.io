@@ -1,3 +1,12 @@
+interface GithubRepositoryData {
+  id: string;
+  name: string;
+  description: string;
+  forkCount: Number;
+  updatedAt: string;
+  url: string;
+}
+
 interface MarkdownData {
   path: string;
   frontmatter: {
@@ -11,18 +20,21 @@ interface MarkdownData {
   };
 }
 
+interface GraphQLCollection<TData> {
+  edges: Array<{
+    node: TData;
+  }>;
+}
+
+interface SiteCollection<TData> {
+  siteMetadata: TData;
+}
+
 export interface GraphQLData {
-  site: {
-    siteMetadata: {
-      title: string;
-    };
-  };
-
-  allMarkdownRemark: {
-    edges: Array<{
-      node: MarkdownData;
-    }>;
-  };
-
+  allGithubRepositories: GraphQLCollection<GithubRepositoryData>;
+  allMarkdownRemark: GraphQLCollection<MarkdownData>;
   markdownRemark: MarkdownData;
+  site: SiteCollection<{
+    title: string;
+  }>;
 }

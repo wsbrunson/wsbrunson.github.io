@@ -11,7 +11,7 @@ const BlogIndex = ({ data }: { data: GraphQLData }) => (
     <Helmet title={data.site.siteMetadata.title} />
     {data.allMarkdownRemark.edges.map(({ node }) =>
       node.path !== "/404/" ? (
-        <div key={node.fields.slug} className="mb4">
+        <div key={node.fields.slug} className="mv5">
           <h3 className="ma0 f3">
             <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
           </h3>
@@ -38,7 +38,7 @@ export const pageQuery = graphql`
           fields {
             slug
           }
-          excerpt
+          excerpt(pruneLength: 300)
           frontmatter {
             date(formatString: "DD MMM YYYY")
           }

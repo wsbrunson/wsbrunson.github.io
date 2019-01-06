@@ -13,7 +13,7 @@ const BlogPostTemplate = ({ data }: { data: GraphQLData }) => {
   return (
     <Layout>
       <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-      <h2 className="ma0 f2">{post.frontmatter.title}</h2>
+      <h2 className="ma0 pt5 f3 dark-red">{post.frontmatter.title}</h2>
       <Date>{post.frontmatter.date}</Date>
       <p
         className="mw7 f4 lh-copy"
