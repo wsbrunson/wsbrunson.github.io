@@ -64,7 +64,6 @@ module.exports = {
       }
     },
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-typescript",
-    "gatsby-plugin-remove-serviceworker"
+    "gatsby-plugin-typescript"
   ]
 };
