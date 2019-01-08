@@ -14,76 +14,77 @@ My existing Angular app, QuizSimply, wasn't a traditional Angular application. I
 
 Since my application was already initially componentized, my next steps were to convert the Angular syntax to React. I'll demonstrate the path I took with my Quiz component. It receives an object of questions and choices, then renders each question card. I've simplified the code quite a bit so it is easier to follow along, but you can check out the full examples in the [QuizSimply GitHub repo](https://github.com/wsbrunson/Simple-Javascript-Quiz).
 
-{% highlight javascript %}
-angular.module('App').directive('quiz', function() {
-return {
-scope: {},
-bindToController: {
-questions: '&'
-},
-templateUrl: './quiz-template.html',
-controllerAs: 'vm',
-controller: function questionController() {
-const vm = this;
+```javascript
+angular.module("App").directive("quiz", function() {
+  return {
+    scope: {},
+    bindToController: {
+      questions: "&"
+    },
+    templateUrl: "./quiz-template.html",
+    controllerAs: "vm",
+    controller: function questionController() {
+      const vm = this;
 
-    		vm.questions = vm.questions();
-        }
-    };
-
+      vm.questions = vm.questions();
+    }
+  };
 });
-{% endhighlight %}
-And the template:
-{% highlight html %}
+```
 
+And the template:
+
+```html
 <div ng-repeat="question in vm.questions">
-	<h3>{{ question.questionTitle }}</h3>
-	<div ng-repeat="choice in question.choices">
-	    <input type="radio">
-	    <label>{{ choice }}</label>
-	</div>
+  <h3>{{ question.questionTitle }}</h3>
+  <div ng-repeat="choice in question.choices">
+    <input type="radio" /> <label>{{ choice }}</label>
+  </div>
 </div>
-{% endhighlight %}
+```
 
 First step was to remove the Angular decoration at the top and use the ES2015 (ES6) class declaration syntax to define the Questions component.
 
-{% highlight javascript %}
+```javascript
 //Angular
 angular.module('App').directive('quiz', function() {});
 
 //React
 class Quiz extends React.Component({})
-{% endhighlight %}
+```
+
 We can remove all of the boilerplate code that defines an Angular directive. If you are using the new 1.5 component syntax then this isn't a problem. We can also add the `render()` function and the template.
 
-{% highlight javascript %}
+```javascript
 class Quiz extends React.Component({
-render() {
-return (
-
-<div ng-repeat="question in vm.questions">
-<h3>{{ question.questionTitle }}</h3>
-<div ng-repeat="choice in question.choices">
-<input type="radio" />
-<label>{{ choice }}</label>
-</div>
-</div>
-);
-}
+  render() {
+    return (
+      <div ng-repeat="question in vm.questions">
+        <h3>{{ question.questionTitle }}</h3>
+          <div ng-repeat="choice in question.choices">
+            <input type="radio" />
+            <label>{{ choice }}</label>
+          </div>
+      </div>
+    );
+  }
 })
-{% endhighlight %}
+```
+
 Let's touch up our template by removing the references to Angular directives and replacing them with The React Way:
 
-{% highlight html %}
+```html
 // Angular
 
 <div ng-repeat="question in vm.questions">
-    <h3>{{ question.questionTitle }}</h3>
-    <div ng-repeat="choice in question.choices">
-        <input type="radio">
-        <label>{{ choice }}</label>
-    </div>
+  <h3>{{ question.questionTitle }}</h3>
+  <div ng-repeat="choice in question.choices">
+    <input type="radio" /> <label>{{ choice }}</label>
+  </div>
 </div>
+```
 
+```javascript
 //React
 
 <div className="question-container">
@@ -96,9 +97,11 @@ Let's touch up our template by removing the references to Angular directives and
         );
     }}
 </div>
-{% endhighlight %}
+```
+
 While converting our template to work in React, we've replaced the second `ng-repeat` directive with a new React component, Choices. Moving my app into React showed me a lot of places where I could break my code into even smaller components. Without the Choices component, we would have had to perform a second map of all the choices in the question object. Nesting ng-repeats is a little weird to see, but not necessarily an immediate code smell. Nesting loops, on the other hand, feels wrong right away. Our Choices component looks like this:
-{% highlight javascript %}
+
+```javascript
 class Choices extends React.Component({
     render() {
         return(
@@ -115,9 +118,11 @@ class Choices extends React.Component({
         );
     }
 })
-{% endhighlight %}
+```
+
 The final version of our new Quiz component looks like this:
-{% highlight javascript %}
+
+```javascript
 class Quiz extends React.Component({
     render() {
         return(
@@ -134,7 +139,7 @@ class Quiz extends React.Component({
         );
     }
 })
-{% endhighlight %}
+```
 
 ## Final Thoughts
 

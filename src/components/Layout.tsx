@@ -11,12 +11,15 @@ interface Props {
 
 const Layout = ({ children }: Props) => (
   <React.Fragment>
-    <header className="h3 mh5 flex justify-between items-center system-sans-serif">
+    <header className="h3 mh5-l mh5-m flex justify-between items-center system-sans-serif">
       <Heading>Shane Brunson</Heading>
       <Nav />
     </header>
-    <main className="mh5 vw-100 vh-100 bg-near-white near-black flex flex-column justify-center items-center system-sans-serif">
-      <div className="w-100 h-100 overflow-y-scroll flex flex-column items-center ">
+    <main
+      className="mh5-l mh5-m bg-near-white near-black flex flex-column justify-center items-center system-sans-serif"
+      style={{ height: "90vh" }}
+    >
+      <div className="w-100 overflow-y-scroll flex flex-column items-center ">
         <div className="mw7">{children}</div>
       </div>
     </main>
