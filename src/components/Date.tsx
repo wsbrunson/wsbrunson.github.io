@@ -2,8 +2,8 @@ import React from "react";
 
 const Date = ({ children }: { children: React.ReactNode }) => (
   <React.Fragment>
-    <hr className="w4 mh0 mv2" />
-    <small>{children}</small>
+    <hr className="w4 mh0 mv2 near-black" />
+    <small className="near-black">{children}</small>
   </React.Fragment>
 );
 

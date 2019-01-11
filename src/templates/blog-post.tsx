@@ -16,7 +16,7 @@ const BlogPostTemplate = ({ data }: { data: GraphQLData }) => {
       <h2 className="ma0 pt5 f2 dark-red">{post.frontmatter.title}</h2>
       <Date>{post.frontmatter.date}</Date>
       <p
-        className="mw7 f4 lh-copy"
+        className="f4 lh-copy near-black"
         dangerouslySetInnerHTML={{ __html: post.html }}
       />
       <hr />

@@ -8,7 +8,7 @@ const MyLink = ({
   children: React.ReactNode;
   to: string;
 }) => (
-  <Link className="dark-red link underline-hover" to={to}>
+  <Link className="dark-red link hover-near-black" to={to}>
     {children}
   </Link>
 );

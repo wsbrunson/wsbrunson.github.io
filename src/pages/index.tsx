@@ -17,7 +17,7 @@ const BlogIndex = ({ data }: { data: GraphQLData }) => (
           </h3>
           <Date>{node.frontmatter.date}</Date>
           <p
-            className="lh-copy"
+            className="lh-copy near-black"
             dangerouslySetInnerHTML={{ __html: node.excerpt }}
           />
         </div>
