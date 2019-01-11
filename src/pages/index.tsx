@@ -16,7 +16,10 @@ const BlogIndex = ({ data }: { data: GraphQLData }) => (
             <Link to={node.fields.slug}>{node.frontmatter.title}</Link>
           </h3>
           <Date>{node.frontmatter.date}</Date>
-          <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
+          <p
+            className="lh-copy"
+            dangerouslySetInnerHTML={{ __html: node.excerpt }}
+          />
         </div>
       ) : null
     )}

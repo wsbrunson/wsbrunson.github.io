@@ -1,5 +1,5 @@
 ---
-title: Unit Testing Redux Container Components - Part 1
+title: Testing Redux Container Components
 date: "2016-05-08"
 ---
 
