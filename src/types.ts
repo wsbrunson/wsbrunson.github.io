@@ -7,7 +7,7 @@ interface GithubRepositoryData {
   url: string;
 }
 
-interface MarkdownData {
+export interface MarkdownData {
   path: string;
   frontmatter: {
     title: string;
