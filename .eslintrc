@@ -1,6 +1,0 @@
-{
-  "extends": ["@wsbrunson/eslint-config-modern"],
-  "rules": {
-    "react/prop-types": false
-  }
-}
