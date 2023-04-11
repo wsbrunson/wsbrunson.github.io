@@ -1,0 +1,11 @@
+name = "monet"
+license = "MIT"
+description = "A impressionist theme for Hugo."
+homepage = "https://github.com/panr/hugo-theme-terminal/"
+tags = []
+features = []
+min_version = 0.90
+
+[author]
+  name = "shane"
+  homepage = "https://www.wsbrunson.com"

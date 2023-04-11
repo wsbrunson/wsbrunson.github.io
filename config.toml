@@ -1,4 +1,4 @@
 baseURL = 'https://wsbrunson.com/'
 languageCode = 'en-us'
 title = 'Shane Brunson'
-theme = "terminal"
+theme = "monet"
