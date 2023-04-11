@@ -1,7 +1,7 @@
----
-title: Testing Redux Container Components
-date: "2016-05-08"
----
++++
+title = "Testing Redux Container Components"
+date = "2016-05-08"
++++
 
 Writing large React applications requires a sane solution to managing state. There are a few libraries to choose from, but the most popular is [Redux][redux-link]. Redux has some great features, including a convenient way to create Container components that can map state and actions to the properties of a presentational component.
 
@@ -34,7 +34,7 @@ import Choice from "../components/Choice";
 
 const mapStateToProps = () => {
   return {
-    isSelected: false
+    isSelected: false,
   };
 };
 
@@ -42,14 +42,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     saveSelection: () => {
       dispatch(addSelection(ownProps.questionNumber, ownProps.choiceNumber));
-    }
+    },
   };
 };
 
-const ChoiceContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Choice);
+const ChoiceContainer = connect(mapStateToProps, mapDispatchToProps)(Choice);
 
 export default ChoiceContainer;
 ```
@@ -148,14 +145,14 @@ We created a Provider component, gave it a fake store, and wrapped the ChoiceCon
 Here is what the fake store looks like:
 
 ```javascript
-export const storeFake = state => {
+export const storeFake = (state) => {
   return {
     default: () => {},
     subscribe: () => {},
     dispatch: () => {},
     getState: () => {
       return { ...state };
-    }
+    },
   };
 };
 ```

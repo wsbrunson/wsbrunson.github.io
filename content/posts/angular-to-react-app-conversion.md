@@ -1,7 +1,7 @@
----
-title: Converting from Angular 1.x to React
-date: "2016-03-18"
----
++++
+title = "Converting from Angular 1.x to React"
+date = "2016-03-18"
++++
 
 After completing Wes Bos's excellent React course, [React For Beginners](https://reactforbeginners.com),
 I was eager to try out what I learned on an actual project. I have an existing project call QuizSimply that I created as a way to learn Angular 1.x. I created a new branch called 'react' and started the app re-write process.
@@ -15,11 +15,11 @@ My existing Angular app, QuizSimply, wasn't a traditional Angular application. I
 Since my application was already initially componentized, my next steps were to convert the Angular syntax to React. I'll demonstrate the path I took with my Quiz component. It receives an object of questions and choices, then renders each question card. I've simplified the code quite a bit so it is easier to follow along, but you can check out the full examples in the [QuizSimply GitHub repo](https://github.com/wsbrunson/Simple-Javascript-Quiz).
 
 ```javascript
-angular.module("App").directive("quiz", function() {
+angular.module("App").directive("quiz", function () {
   return {
     scope: {},
     bindToController: {
-      questions: "&"
+      questions: "&",
     },
     templateUrl: "./quiz-template.html",
     controllerAs: "vm",
@@ -27,7 +27,7 @@ angular.module("App").directive("quiz", function() {
       const vm = this;
 
       vm.questions = vm.questions();
-    }
+    },
   };
 });
 ```

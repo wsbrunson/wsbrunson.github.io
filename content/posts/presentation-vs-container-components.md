@@ -1,7 +1,7 @@
----
-title: Presentation vs Container components
-date: "2016-04-22"
----
++++
+title = "Presentation vs Container components"
+date = "2016-04-22"
++++
 
 As a React app begins to scale, the need for separating view logic from business logic becomes more apparent. Separation of Concerns is an important concept in software development, but it isn’t obvious how to do this with React. There are a couple of great articles that I have come across that explain how to do this. This article will serve as a summary and amalgamation of what I have found in my research.
 
